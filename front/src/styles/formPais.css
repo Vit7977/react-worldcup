@@ -1,0 +1,103 @@
+.imgFundo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../imgs/Fundo\ Login.png");
+    background-position: center;
+    background-attachment:fixed;
+    background-size: cover;
+}
+
+@media(max-width: 425px){
+    .form-pais{
+        max-width: 210px;
+        max-height: 210px;
+    }
+}
+.titulo-pais{
+    font-size: 35px;
+    margin-bottom: -30px;
+    margin-top: -20px;
+}
+.form-pais{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s;
+    background: transparent;
+    border: solid 1px rgb(197, 196, 196);
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+    padding: 50px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 45px black;
+}
+.div-dados{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+.lbl{
+    position: absolute;
+    pointer-events: none;
+    left: 6px;
+    padding: 0 4px;
+    font-size: 16px;
+    transform: translateY(0px);
+    transition: .4s;
+}
+.img-dados{
+    position: absolute;
+    pointer-events: none;
+    filter: invert(1);
+    height: 25px;
+    width: 25px;
+    right: 6px;
+}
+.input-txt{
+    padding: 15px 10px;
+    font-size: 18px;
+    transition: .4s;
+    border: none;
+    border-bottom: solid 2px white;
+    background: transparent;
+}
+.input-txt:focus + .lbl{
+    transform: translateY(-30px);
+    color: rgb(0, 255, 149);
+}
+.input-txt:focus{
+    border-color: rgb(0, 255, 149);
+}
+.input-txt:valid + .lbl{
+    transform: translateY(-30px);
+    color: rgb(0, 255, 149);
+}
+.input-txt:valid{
+    border-color: rgb(0, 255, 149);
+}
+
+.btn-submit{
+    width: 100%;
+    padding: 15px 10px;
+    border-radius: 50rem;
+    transition: .4s;
+    border: none;
+    background: white;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 0 15px black;
+}
+.btn-submit:hover{
+    background: rgb(0, 255, 149);
+    box-shadow: 0 0 15px rgb(0, 255, 149);
+}
+.btn-submit:active{
+    transform: scale(0.9);
+}
