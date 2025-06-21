@@ -3,7 +3,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import '../styles/cardsPais.css';
 import axios from 'axios';
 import { useState } from 'react';
-import EditPaisForm from './formEditPais'; // Importa o form separado
+import EditPaisForm from './FormEditPais'; // Importa o form separado
 
 const CardsPais = ({ pais, grupo }) => {
     const [editPais, setEditPais] = useState(null);
@@ -33,8 +33,8 @@ const CardsPais = ({ pais, grupo }) => {
     return (
         <Container>
             <Body className="body">
-                {pais.map((pais, i) => (
-                    <CardContainer className="container" key={i}>
+                {pais.map((pais) => (
+                    <CardContainer className="container" key={pais.id}>
                         <CardContent className="content">
                             <PaisImg src={pais.bandeira_url} />
                             <PaisData>{pais.nome}</PaisData>

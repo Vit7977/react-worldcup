@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import '../styles/formEditPais.css'
+import '../styles/formEditPais.css';
 
 const EditPaisForm = ({ editPais, showForm, setShowForm, grupo }) => {
     const ref = useRef();
@@ -34,7 +34,7 @@ const EditPaisForm = ({ editPais, showForm, setShowForm, grupo }) => {
     };
 
     return (
-        <Container className={`container-form-edit ${showForm}`} show={showForm}>
+        <Container className={`container-form-edit ${showForm}`} $show={showForm}>
             <EditForm
                 ref={ref}
                 className="form-edit-pais"
@@ -52,23 +52,24 @@ const EditPaisForm = ({ editPais, showForm, setShowForm, grupo }) => {
                 <Div className='div-edit'>
                     <Label>Grupo</Label>
                     <Select name='grupo' defaultValue={editPais?.fk_grupo || ''}>
-                        {grupo.map((item, i) => (
-                            <Option key={i} value={item.id}>{item.nome}</Option>
+                        {grupo.map((item) => (
+                            <Option key={item.id} value={item.id}>{item.nome}</Option>
                         ))}
                     </Select>
                 </Div>
                 <Button className="btn-edit" type='submit'>Atualizar</Button>
             </EditForm>
-            <ContainerPFlag className="containerPFlag">
-                <Header>Preview Bandeira</Header>
-                <PreviewFlag className="previewflag" src={bandeiraUrl}/>
+            <ContainerPFlag className='containerPFlag'>
+                <Header className='titulo-pais'>Preview Bandeira</Header>
+                <PreviewFlag className='previewFlag' src={bandeiraUrl} alt="Digite a URL da Bandeira" />
             </ContainerPFlag>
+
         </Container>
     );
 };
 
 const Container = styled.div`
-    display: ${({ show }) => (show ? 'flex' : 'none')}
+    display: ${({ $show }) => ($show ? 'flex' : 'none')}
 `;
 
 const EditForm = styled.form``;

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import '../styles/formPais.css';
-import { useState, useRef } from 'react';
-import axios from 'axios';
+import styled from "styled-components";
+import "../styles/formPais.css";
+import { useState, useRef } from "react";
+import axios from "axios";
 
 const FormPais = ({grupo}) =>{
     const ref = useRef()
@@ -13,7 +13,7 @@ const FormPais = ({grupo}) =>{
 
         const pais = ref.current;
 
-        await axios.post('http://localhost:9090/api/pais', {
+        await axios.post("http://localhost:9090/api/pais", {
             nome: pais.nome.value,
             bandeira_url: pais.bandeira_url.value,
             grupo: pais.grupo.value
@@ -24,35 +24,36 @@ const FormPais = ({grupo}) =>{
         pais.bandeira_url.value = "";
         pais.grupo.value = "";
 
-        alert('País cadastrado com sucesso!');
+        alert("País cadastrado com sucesso!");
         return window.location.reload();
     }
     return (
-        <Body className='imgFundo'>            
-            <Form className='form-pais' ref={ref} onSubmit={handleSubmit}>
-                <Header className='titulo-pais'>Cadastrar País</Header>
-                <Div className='div-dados'>
-                    <Input className='input-txt' name='nome' required></Input>
-                    <Label className='lbl'>Nome</Label>
+        <Body className="imgFundo">            
+            <Form className="form-pais" ref={ref} onSubmit={handleSubmit}>
+                <Header className="titulo-pais">Cadastrar País</Header>
+                <Div className="div-dados">
+                    <Input className="input-txt" name="nome" required></Input>
+                    <Label className="lbl">Nome</Label>
                 </Div>
-                <Div className='div-dados'>
-                    <Input className='input-txt' name='bandeira_url' required onChange={(e) => setBandeiraUrl(e.target.value)}></Input>
-                    <Label className='lbl'>Bandeira(URL)</Label>  
+                <Div className="div-dados">
+                    <Input className="input-txt" name="bandeira_url" required onChange={(e) => setBandeiraUrl(e.target.value)}></Input>
+                    <Label className="lbl">Bandeira(URL)</Label>  
                 </Div>
-                    <Div className='div-dados'>
+                    <Div className="div-dados">
                 <Label>Grupo</Label>
-                        <Select name='grupo'>
-                            {grupo.map((item, i)=>{
-                                return <Option key={i} value={item.id}>{item.nome}</Option>
+                        <Select name="grupo">
+                            {grupo.map((item)=>{
+                                return <Option key={item.id} value={item.id}>{item.nome}</Option>
                             })}
                         </Select>
                     </Div>
-                <Button className='btn-submit' type='submit'>Cadastrar</Button>
+                <Button className="btn-submit" type="submit">Cadastrar</Button>
             </Form>
             <ContainerPFlag className='containerPFlag'>
-                <Header className='titulo-pais'>Preview Bandeira</Header>
-                <PreviewFlag className='previewFlag' src={bandeiraUrl}/>
+                 <Header className='titulo-pais'>Preview Bandeira</Header>
+                 <PreviewFlag className='previewFlag' src={bandeiraUrl} alt="Digite a URL da Bandeira" />
             </ContainerPFlag>
+
         </Body>
 
     );

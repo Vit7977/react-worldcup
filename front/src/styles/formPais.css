@@ -4,7 +4,7 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-image: url("../imgs/Fundo\ Login.png");
+    background-image: url("../assets/Fundo\ Login.png");
     background-position: center;
     background-attachment:fixed;
     background-size: cover;
