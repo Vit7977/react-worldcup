@@ -4,7 +4,7 @@ const PaisController = {
   async getPais(_, res) {
     await connection.execute(`SELECT * FROM pais`, (error, result) => {
       if (error) {
-        return res.json(error.message);
+        return res.json(error);
       }
       return res.status(200).json(result);
     });
@@ -23,7 +23,7 @@ const PaisController = {
         data: data,
       });
     } catch (error) {
-      console.log("Erro:" + error.message);
+      console.log("Erro:" + error);
       return res.status(500).send("Erro ao cadastrar país!");
     }
   },
@@ -46,7 +46,7 @@ const PaisController = {
         data: data,
       });
     } catch (error) {
-      console.log("Erro:" + error.message);
+      console.log("Erro:" + error);
       return res.status(500).send("Erro ao atualizar!");
     }
   },
@@ -58,7 +58,7 @@ const PaisController = {
         message: "Id " + id + " foi deletado com sucesso!",
       });
     } catch (error) {
-      console.log("Erro:" + error.message);
+      console.log("Erro:" + error);
       return res.status(500).send("Erro ao deletar!");
     }
   },

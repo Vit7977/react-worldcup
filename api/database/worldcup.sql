@@ -62,7 +62,7 @@ ALTER TABLE jogo ADD INDEX(id);
 
 CREATE TABLE IF NOT EXISTS pais_em_grupo(
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    status ENUM("Classificado", "Eliminado") NULL,
+    status ENUM("Pendente, Classificado", "Eliminado") DEFAULT ("Pendente"),
     fk_pais INT UNSIGNED, 
     fk_grupo INT UNSIGNED,
     FOREIGN KEY (fk_pais) REFERENCES pais(id),
