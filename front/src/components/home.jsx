@@ -5,6 +5,7 @@ const Home = () =>{
         <div>
             <h1>Home</h1>
             <Link to={'/cadastrar/pais'}>Cadastrar País</Link>
+            <Link to={'/listar/pais'}>Listar País</Link>
         </div>
     );
 }

@@ -2,12 +2,15 @@ import { connection } from "../database/connection.js";
 
 const PaisController = {
   async getPais(_, res) {
-    await connection.execute(`SELECT * FROM pais`, (error, result) => {
-      if (error) {
-        return res.json(error);
+    await connection.execute(
+      `SELECT pais.id, pais.nome, pais.bandeira_url, pais.fk_grupo, grupo.nome as grupo FROM pais, grupo WHERE pais.fk_grupo = grupo.id`,
+      (error, result) => {
+        if (error) {
+          return res.json(error);
+        }
+        return res.status(200).json(result);
       }
-      return res.status(200).json(result);
-    });
+    );
   },
 
   async addPais(req, res) {

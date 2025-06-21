@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import '../styles/formPais.css';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 
 const FormPais = ({grupo}) =>{
     const ref = useRef()
+
+    const [bandeiraUrl, setBandeiraUrl] = useState("")
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -22,7 +24,8 @@ const FormPais = ({grupo}) =>{
         pais.bandeira_url.value = "";
         pais.grupo.value = "";
 
-        return alert('País cadastrado com sucesso!')
+        alert('País cadastrado com sucesso!');
+        return window.location.reload();
     }
     return (
         <Body className='imgFundo'>            
@@ -33,7 +36,7 @@ const FormPais = ({grupo}) =>{
                     <Label className='lbl'>Nome</Label>
                 </Div>
                 <Div className='div-dados'>
-                    <Input className='input-txt' name='bandeira_url' required></Input>
+                    <Input className='input-txt' name='bandeira_url' required onChange={(e) => setBandeiraUrl(e.target.value)}></Input>
                     <Label className='lbl'>Bandeira(URL)</Label>  
                 </Div>
                     <Div className='div-dados'>
@@ -46,6 +49,10 @@ const FormPais = ({grupo}) =>{
                     </Div>
                 <Button className='btn-submit' type='submit'>Cadastrar</Button>
             </Form>
+            <ContainerPFlag className='containerPFlag'>
+                <Header className='titulo-pais'>Preview Bandeira</Header>
+                <PreviewFlag className='previewFlag' src={bandeiraUrl}/>
+            </ContainerPFlag>
         </Body>
 
     );
@@ -68,5 +75,8 @@ const Button = styled.button``;
 const Select = styled.select``;
 
 const Option = styled.option``;
+
+const ContainerPFlag = styled.div``;
+const PreviewFlag = styled.img``;
 
 export default FormPais

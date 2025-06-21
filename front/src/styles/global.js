@@ -9,13 +9,6 @@ const Global = createGlobalStyle`
     padding: 0;
     font-family: 'Funnel Display','sans-serif';
 }
-body{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-}
 `;
 
 export default Global;

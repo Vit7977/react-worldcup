@@ -1,53 +1,64 @@
-.imgFundo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("../imgs/Fundo\ Login.png");
-    background-position: center;
-    background-attachment:fixed;
-    background-size: cover;
-    color: white;
-}
-
 @media(max-width: 425px){
-    .form-pais{
+    .form-edit-pais{
         max-width: 210px;
         max-height: 210px;
     }
 }
-.titulo-pais{
+
+.container-form-edit{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 999;
+}
+
+.closeForm{
+    cursor: pointer;
+    padding-left: 10px;
+    color: red;
+}
+
+.closeForm:hover{
+    color: rgb(128, 0, 0);
+}
+
+.titulo-edit-pais{
     font-size: 25px;
     margin-top: -30px;
-    color: white;
-    backdrop-filter: blur(20px);
-    border-radius: 5px 5px 0 0;
 }
-.form-pais{
+.form-edit-pais{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     transition: 0.5s;
-    background: transparent;
+    background: rgb(255, 255, 255);
     border: solid 1px rgb(197, 196, 196);
     border-radius: 20px;
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 250px;
     padding: 50px;
     gap: 10px;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 45px black;
 }
-.div-dados{
+.div-edit{
     display: flex;
     justify-content: center;
     flex-direction: column;
     position: relative;
     width: 100%;
 }
-.lbl{
+.lbl-edit{
     position: absolute;
     pointer-events: none;
     left: 6px;
@@ -56,15 +67,7 @@
     transform: translateY(0px);
     transition: .4s;
 }
-.img-dados{
-    position: absolute;
-    pointer-events: none;
-    filter: invert(1);
-    height: 25px;
-    width: 25px;
-    right: 6px;
-}
-.input-txt{
+.input-edit{
     padding: 15px 10px;
     font-size: 16px;
     transition: .4s;
@@ -73,22 +76,22 @@
     border-bottom: solid 2px white;
     background: transparent;
 }
-.input-txt:focus + .lbl{
+.input-edit:focus + .lbl{
     transform: translateY(-25px);
     color: rgb(0, 255, 149);
 }
-.input-txt:focus{
+.input-edit:focus{
     border-color: rgb(0, 255, 149);
 }
-.input-txt:valid + .lbl{
+.input-edit:valid + .lbl{
     transform: translateY(-25px);
     color: rgb(0, 255, 149);
 }
-.input-txt:valid{
+.input-edit:valid{
     border-color: rgb(0, 255, 149);
 }
 
-.btn-submit{
+.btn-edit{
     width: 100%;
     padding: 15px 10px;
     border-radius: 50rem;
@@ -99,26 +102,26 @@
     cursor: pointer;
     box-shadow: 0 0 15px black;
 }
-.btn-submit:hover{
+.btn-edit:hover{
     background: rgb(0, 255, 149);
     box-shadow: 0 0 15px rgb(0, 255, 149);
 }
-.btn-submit:active{
+.btn-edit:active{
     transform: scale(0.9);
 }
 
 .containerPFlag{
     text-align: center;
-    width: 300px;
-    height: 250px;
-    margin-left: 0px;   
-}
-
-.previewFlag{
-    border: 1px solid black;
-    object-fit: cover;
+    color: rgb(24, 24, 24);
     width: 300px;
     height: 150px;
+    margin-left: 70px;
+}
+
+.previewflag{
+     border: 1px solid black;
+    object-fit: cover;
+    width: 300px;
     border-radius: 5px;
-    backdrop-filter: blur(10px);
+    height: 150px;
 }

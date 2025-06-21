@@ -1,0 +1,52 @@
+.bodyContainer{
+
+}
+
+.body{
+    display: flex;
+    justify-content: start;
+    margin: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.container{
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+img{
+    width: 150px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.editIcon{
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.editIcon:hover{
+   color: rgb(26, 189, 4);
+}
+
+.deleteIcon{
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.deleteIcon:hover{
+    color: rgb(179, 0, 0);
+}
