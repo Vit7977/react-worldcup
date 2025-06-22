@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import '../styles/cardsPais.css';
+import style from '../styles/cardsPais.module.css';
 import axios from 'axios';
 import { useState } from 'react';
 import EditPaisForm from './FormEditPais'; // Importa o form separado
@@ -32,16 +32,16 @@ const CardsPais = ({ pais, grupo }) => {
 
     return (
         <Container>
-            <Body className="body">
+            <Body className={style.body}>
                 {pais.map((pais) => (
-                    <CardContainer className="container" key={pais.id}>
-                        <CardContent className="content">
-                            <PaisImg src={pais.bandeira_url} />
+                    <CardContainer className={style.container} key={pais.id}>
+                        <CardContent className={style.content}>
+                            <PaisImg className={style.img} src={pais.bandeira_url} />
                             <PaisData>{pais.nome}</PaisData>
                             <PaisData>Grupo: {pais.grupo}</PaisData>
                             <PaisData>
-                                <FaEdit className="editIcon" onClick={() => handleEdit(pais)} />
-                                <FaTrash className="deleteIcon" onClick={() => handleDelete(pais.id)} />
+                                <FaEdit className={style.editIcon} onClick={() => handleEdit(pais)} />
+                                <FaTrash className={style.deleteIcon} onClick={() => handleDelete(pais.id)} />
                             </PaisData>
                         </CardContent>
                     </CardContainer>

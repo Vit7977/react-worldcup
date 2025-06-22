@@ -20,7 +20,7 @@
     gap: 5px;
 }
 
-img{
+.img{
     width: 150px;
     height: 90px;
     object-fit: cover;

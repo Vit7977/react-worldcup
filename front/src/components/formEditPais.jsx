@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import '../styles/formEditPais.css';
+import style from '../styles/formEditPais.module.css';
 
 const EditPaisForm = ({ editPais, showForm, setShowForm, grupo }) => {
     const ref = useRef();
@@ -34,22 +34,22 @@ const EditPaisForm = ({ editPais, showForm, setShowForm, grupo }) => {
     };
 
     return (
-        <Container className={`container-form-edit ${showForm}`} $show={showForm}>
+        <Container className={style.containerFormEdit} $show={showForm}>
             <EditForm
                 ref={ref}
-                className="form-edit-pais"
+                className={style.formEditPais}
                 onSubmit={handleSubmit}
             >
-                <Header className='titulo-edit-pais'>Atualizar País <Span className="closeForm" onClick={() => setShowForm(false)}>X</Span></Header>
-                <Div className='div-edit'>
-                    <Input className="input-edit" name='nome' required defaultValue={editPais?.nome} />
-                    <Label className="lbl">Nome</Label>
+                <Header className={style.tituloEditPais}>Atualizar País <Span className={style.closeForm} onClick={() => setShowForm(false)}>X</Span></Header>
+                <Div className={style.divEdit}>
+                    <Input className={style.inputEdit} name='nome' required defaultValue={editPais?.nome} />
+                    <Label className={style.lbl}>Nome</Label>
                 </Div>
-                <Div className='div-edit'>
-                    <Input className="input-edit" id="bandeira_url" name='bandeira_url' required defaultValue={editPais?.bandeira_url}  onChange={(e) => setBandeiraUrl(e.target.value)} />
-                    <Label className="lbl">Bandeira(URL)</Label>
+                <Div className={style.divEdit}>
+                    <Input className={style.inputEdit} name='bandeira_url' required defaultValue={editPais?.bandeira_url}  onChange={(e) => setBandeiraUrl(e.target.value)} />
+                    <Label className={style.lbl}>Bandeira(URL)</Label>
                 </Div>
-                <Div className='div-edit'>
+                <Div className={style.divEdit}>
                     <Label>Grupo</Label>
                     <Select name='grupo' defaultValue={editPais?.fk_grupo || ''}>
                         {grupo.map((item) => (
@@ -57,11 +57,11 @@ const EditPaisForm = ({ editPais, showForm, setShowForm, grupo }) => {
                         ))}
                     </Select>
                 </Div>
-                <Button className="btn-edit" type='submit'>Atualizar</Button>
+                <Button className={style.btnEdit} type='submit'>Atualizar</Button>
             </EditForm>
-            <ContainerPFlag className='containerPFlag'>
-                <Header className='titulo-pais'>Preview Bandeira</Header>
-                <PreviewFlag className='previewFlag' src={bandeiraUrl} alt="Digite a URL da Bandeira" />
+            <ContainerPFlag className={style.containerPFlag}>
+                <Header className={style.tituloPais}>Preview Bandeira</Header>
+                <PreviewFlag className={style.previewFlag} src={bandeiraUrl} alt="Digite a URL da Bandeira" />
             </ContainerPFlag>
 
         </Container>

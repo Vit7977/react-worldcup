@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "../styles/formPais.css";
+import style from "../styles/formPais.module.css";
 import { useState, useRef } from "react";
 import axios from "axios";
 
@@ -28,32 +28,33 @@ const FormPais = ({grupo}) =>{
         return window.location.reload();
     }
     return (
-        <Body className="imgFundo">            
-            <Form className="form-pais" ref={ref} onSubmit={handleSubmit}>
-                <Header className="titulo-pais">Cadastrar País</Header>
-                <Div className="div-dados">
-                    <Input className="input-txt" name="nome" required></Input>
-                    <Label className="lbl">Nome</Label>
-                </Div>
-                <Div className="div-dados">
-                    <Input className="input-txt" name="bandeira_url" required onChange={(e) => setBandeiraUrl(e.target.value)}></Input>
-                    <Label className="lbl">Bandeira(URL)</Label>  
-                </Div>
-                    <Div className="div-dados">
-                <Label>Grupo</Label>
-                        <Select name="grupo">
-                            {grupo.map((item)=>{
-                                return <Option key={item.id} value={item.id}>{item.nome}</Option>
-                            })}
-                        </Select>
+        <Body className={style.imgFundo}> 
+            <Div className={style.body}>       
+                <Form className={style.formPais} ref={ref} onSubmit={handleSubmit}>
+                    <Header className={style.tituloPais}>Cadastrar País</Header>
+                    <Div className={style.divDados}>
+                        <Input className={style.inputTxt} name="nome" required></Input>
+                        <Label className={style.lbl}>Nome</Label>
                     </Div>
-                <Button className="btn-submit" type="submit">Cadastrar</Button>
-            </Form>
-            <ContainerPFlag className='containerPFlag'>
-                 <Header className='titulo-pais'>Preview Bandeira</Header>
-                 <PreviewFlag className='previewFlag' src={bandeiraUrl} alt="Digite a URL da Bandeira" />
-            </ContainerPFlag>
-
+                    <Div className={style.divDados}>
+                        <Input className={style.inputTxt} name="bandeira_url" required onChange={(e) => setBandeiraUrl(e.target.value)}></Input>
+                        <Label className={style.lbl}>Bandeira(URL)</Label>  
+                    </Div>
+                        <Div className={style.divDados}>
+                    <Label>Grupo</Label>
+                            <Select name="grupo">
+                                {grupo.map((item)=>{
+                                    return <Option key={item.id} value={item.id}>{item.nome}</Option>
+                                })}
+                            </Select>
+                        </Div>
+                    <Button className={style.btnSubmit} type="submit">Cadastrar</Button>
+                </Form>
+                <ContainerPFlag className={style.containerPFlag}>
+                     <Header className={style.tituloPais}>Preview Bandeira</Header>
+                     <PreviewFlag className={style.previewFlag} src={bandeiraUrl} alt="Digite a URL da Bandeira" />
+                </ContainerPFlag>   
+            </Div> 
         </Body>
 
     );

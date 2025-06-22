@@ -1,64 +1,58 @@
+.imgFundo{
+    background-image: url("../assets/Fundo\ Login.png");
+    background-position: center;
+    background-attachment:fixed;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+}
+
+.body{
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
 @media(max-width: 425px){
-    .form-edit-pais{
+    .formPais{
         max-width: 210px;
         max-height: 210px;
     }
 }
-
-.container-form-edit{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    align-items: center;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.5); 
-    z-index: 999;
-}
-
-.closeForm{
-    cursor: pointer;
-    padding-left: 10px;
-    color: red;
-}
-
-.closeForm:hover{
-    color: rgb(128, 0, 0);
-}
-
-.titulo-edit-pais{
+.tituloPais{
     font-size: 25px;
     margin-top: -30px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px 5px 0 0;
 }
-.form-edit-pais{
+.formPais{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     transition: 0.5s;
-    background: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0.3);
     border: solid 1px rgb(197, 196, 196);
     border-radius: 20px;
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     padding: 50px;
     gap: 10px;
-    backdrop-filter: blur(10px);
+    margin-top: 50px;
     box-shadow: 0 0 45px black;
 }
-.div-edit{
+.divDados{
     display: flex;
     justify-content: center;
     flex-direction: column;
     position: relative;
     width: 100%;
 }
-.lbl-edit{
+.lbl{
     position: absolute;
     pointer-events: none;
     left: 6px;
@@ -67,31 +61,40 @@
     transform: translateY(0px);
     transition: .4s;
 }
-.input-edit{
+.imgDados{
+    position: absolute;
+    pointer-events: none;
+    filter: invert(1);
+    height: 25px;
+    width: 25px;
+    right: 6px;
+}
+.inputTxt{
     padding: 15px 10px;
     font-size: 16px;
     transition: .4s;
     border: none;
     outline: none;
+    color: white;
     border-bottom: solid 2px white;
     background: transparent;
 }
-.input-edit:focus + .lbl{
+.inputTxt:focus + .lbl{
     transform: translateY(-25px);
     color: rgb(0, 255, 149);
 }
-.input-edit:focus{
+.inputTxt:focus{
     border-color: rgb(0, 255, 149);
 }
-.input-edit:valid + .lbl{
+.inputTxt:valid + .lbl{
     transform: translateY(-25px);
     color: rgb(0, 255, 149);
 }
-.input-edit:valid{
+.inputTxt:valid{
     border-color: rgb(0, 255, 149);
 }
 
-.btn-edit{
+.btnSubmit{
     width: 100%;
     padding: 15px 10px;
     border-radius: 50rem;
@@ -102,26 +105,25 @@
     cursor: pointer;
     box-shadow: 0 0 15px black;
 }
-.btn-edit:hover{
+.btnSubmit:hover{
     background: rgb(0, 255, 149);
     box-shadow: 0 0 15px rgb(0, 255, 149);
 }
-.btn-edit:active{
+.btnSubmit:active{
     transform: scale(0.9);
 }
 
 .containerPFlag{
     text-align: center;
-    color: rgb(24, 24, 24);
-    width: 300px;
-    height: 150px;
-    margin-left: 70px;
+    width: 400px;
+    height: 250px;
 }
 
-.previewflag{
-     border: 1px solid black;
+.previewFlag{
+    border: 1px solid rgb(255, 255, 255);
     object-fit: cover;
-    width: 300px;
+    width: 400px;
+    height: 250px;
     border-radius: 5px;
-    height: 150px;
+    backdrop-filter: blur(30px);
 }
